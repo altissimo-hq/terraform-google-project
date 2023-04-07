@@ -1,0 +1,40 @@
+project_id      = "my-fancy-project"
+project_name    = "My Fancy Project"
+
+billing_account = "001122-334455-667788"
+
+# org_id          = "1234567890"
+folder_id       = "1234567890"
+
+iam_policy = {
+  "roles/compute.serviceAgent" = [
+    "serviceAccount:service-PROJECT_NUMBER@compute-system.iam.gserviceaccount.com",
+  ],
+  "roles/editor" = [
+    "serviceAccount:PROJECT_NUMBER-compute@developer.gserviceaccount.com",
+    "serviceAccount:PROJECT_NUMBER@cloudservices.gserviceaccount.com",
+  ]
+  "roles/owner" = [
+    "user:user@example.com",
+  ],
+}
+
+services = [
+  # "compute.googleapis.com",
+  # "oslogin.googleapis.com",
+  # "storage-component.googleapis.com",
+]
+
+service_accounts = {
+  test-service-account = {
+    display_name = "Test Service Account",
+    description  = "Used for testing",
+    roles = [
+      # "roles/storage.admin",
+    ]
+  }
+}
+
+labels = {
+  "environment" = "dev"
+}
