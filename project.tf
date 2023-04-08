@@ -47,6 +47,16 @@ locals {
 
 }
 
+output "project_id" {
+  description = "Google Project ID (string)"
+  value       = google_project.project.project_id
+}
+
+output "project_number" {
+  description = "Google Project Number (string)"
+  value       = google_project.project.number
+}
+
 variable "project_id" {
   description = "Google Project ID"
   type        = string

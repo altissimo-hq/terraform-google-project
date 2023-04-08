@@ -45,6 +45,11 @@ resource "google_project_iam_policy" "project" {
   policy_data = data.google_iam_policy.project.policy_data
 }
 
+output "project_iam_policy" {
+  description = "Google Project IAM Policy (list of binding objects)"
+  value       = jsondecode(data.google_iam_policy.project.policy_data)
+}
+
 variable "iam_policy" {
   description = "Map of Google Project IAM Policy Roles and Members"
   type        = map(list(string))
