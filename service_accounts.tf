@@ -2,7 +2,7 @@
 # Google Service Accounts
 #
 
-# Create the Service Accounts
+# Create Service Accounts
 resource "google_service_account" "service_account" {
   for_each     = var.service_accounts
   project      = google_project.project.project_id
@@ -12,7 +12,7 @@ resource "google_service_account" "service_account" {
   disabled = try(each.value.disabled, false)
 }
 
-# Return a map of all the service accounts that were created
+# Return a map of all service accounts that were created
 output "service_accounts" {
   description = "Google Service Accounts (map of objects)"
   value = {

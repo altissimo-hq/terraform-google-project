@@ -24,7 +24,7 @@ locals {
     ])))
   }
 
-  sa_bindings = transpose({ for account, config in var.service_accounts : account => try(config.roles, []) })
+  sa_bindings = transpose({ for account, config in var.service_accounts : account => coalesce(config.roles, []) })
 
 }
 

@@ -5,7 +5,7 @@
 # Create the Project
 resource "google_project" "project" {
   project_id = var.project_id
-  name       = try(var.project_name, var.project_id)
+  name       = coalesce(var.project_name, var.project_id)
 
   # Set the Project parent to an Organization or Folder
   org_id    = var.org_id
@@ -47,13 +47,19 @@ locals {
 
 }
 
+
+output "number" {
+  description = "Google Project Number (string)"
+  value       = google_project.project.number
+}
+
 output "project_id" {
   description = "Google Project ID (string)"
   value       = google_project.project.project_id
 }
 
 output "project_number" {
-  description = "Google Project Number (string)"
+  description = "Google Project Number (string) [deprecated - use number instead]"
   value       = google_project.project.number
 }
 

@@ -12,9 +12,10 @@ resource "google_project_service" "services" {
   disable_on_destroy         = true
 }
 
-output "project_services" {
-  description = "Google Project Services (list of strings)"
-  value       = [for service in sort(var.services) : google_project_service.services[service].service]
+# Return a map of all services that were enabled
+output "services" {
+  description = "Google Project Services (map of objects)"
+  value       = {for service in sort(var.services) : service => google_project_service.services[service]}
 }
 
 variable "services" {

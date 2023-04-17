@@ -20,8 +20,8 @@ In addition to creating the project, this module will enable project services, c
 
 | Name | Version |
 |------|---------|
-| <a name="provider_external"></a> [external](#provider\_external) | 2.3.1 |
-| <a name="provider_google"></a> [google](#provider\_google) | 4.60.2 |
+| <a name="provider_external"></a> [external](#provider\_external) | >= 2.2.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | >= 4.42.0 |
 
 ## Modules
 
@@ -60,11 +60,12 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_number"></a> [number](#output\_number) | Google Project Number (string) |
 | <a name="output_project_iam_policy"></a> [project\_iam\_policy](#output\_project\_iam\_policy) | Google Project IAM Policy (list of binding objects) |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | Google Project ID (string) |
-| <a name="output_project_number"></a> [project\_number](#output\_project\_number) | Google Project Number (string) |
-| <a name="output_project_services"></a> [project\_services](#output\_project\_services) | Google Project Services (list of strings) |
+| <a name="output_project_number"></a> [project\_number](#output\_project\_number) | Google Project Number (string) [deprecated - use number instead] |
 | <a name="output_service_accounts"></a> [service\_accounts](#output\_service\_accounts) | Google Service Accounts (map of objects) |
+| <a name="output_services"></a> [services](#output\_services) | Google Project Services (map of objects) |
 | <a name="output_unmanaged_project_services"></a> [unmanaged\_project\_services](#output\_unmanaged\_project\_services) | Google Project Services that are enabled but are not managed by Terraform (list of strings) |
 | <a name="output_unmanaged_service_accounts"></a> [unmanaged\_service\_accounts](#output\_unmanaged\_service\_accounts) | Google Service Accounts that exist but are not managed by Terraform (list of strings) |
 <!-- END_TF_DOCS -->
