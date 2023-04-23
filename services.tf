@@ -15,7 +15,7 @@ resource "google_project_service" "services" {
 # Return a map of all services that were enabled
 output "services" {
   description = "Google Project Services (map of objects)"
-  value       = {for service in sort(var.services) : service => google_project_service.services[service]}
+  value       = { for service in sort(var.services) : service => google_project_service.services[service] }
 }
 
 variable "services" {

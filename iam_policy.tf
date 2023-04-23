@@ -9,7 +9,7 @@ locals {
 
   # Replace the PROJECT_NUMBER and PROJECT_ID placeholders in the IAM Policy
   # Add service account roles to the IAM Policy
-  iam_policy = {
+  iam_policy = var.iam_policy == null ? {} : {
     for role, members in var.iam_policy : role => sort(distinct(concat([
       for member in members : replace(
         replace(
@@ -41,6 +41,7 @@ data "google_iam_policy" "project" {
 
 # Set the IAM Policy on the Project
 resource "google_project_iam_policy" "project" {
+  count       = var.iam_policy == null ? 0 : 1
   project     = google_project.project.project_id
   policy_data = data.google_iam_policy.project.policy_data
 }
