@@ -31,13 +31,13 @@ locals {
   sa_bindings = transpose({ for account, config in var.service_accounts : account => coalesce(config.roles, []) })
 
   # Retrieve a list of service accounts with gcloud
-  gcloud_service_accounts = var.gcloud_command == null ? null : jsondecode(data.external.gcloud-iam-service-accounts-list[0].result.data)
+  gcloud_service_accounts = var.gcloud_command == null ? null : jsondecode(data.external.gcloud_iam_service_accounts_list[0].result.data)
 
   # Generate a list of service account names
   gcloud_service_account_emails = var.gcloud_command == null ? null : [for service_account in local.gcloud_service_accounts : service_account.email]
 
   # Retrieve a list of enabled services with gcloud
-  gcloud_services = var.gcloud_command == null ? null : jsondecode(data.external.gcloud-services-list[0].result.data)
+  gcloud_services = var.gcloud_command == null ? null : jsondecode(data.external.gcloud_services_list[0].result.data)
 
   # Generate a list of service names
   gcloud_service_names = var.gcloud_command == null ? null : [for service in local.gcloud_services : service.config.name]

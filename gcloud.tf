@@ -5,7 +5,7 @@ variable "gcloud_command" {
 }
 
 # Retrieve a list of all service accounts with gcloud
-data "external" "gcloud-iam-service-accounts-list" {
+data "external" "gcloud_iam_service_accounts_list" {
   count = var.gcloud_command == null ? 0 : 1
   program = [
     "bash",
@@ -19,7 +19,7 @@ data "external" "gcloud-iam-service-accounts-list" {
 }
 
 # Retrieve a list of all enabled services accounts with gcloud
-data "external" "gcloud-services-list" {
+data "external" "gcloud_services_list" {
   count = var.gcloud_command == null ? 0 : 1
   program = [
     "bash",

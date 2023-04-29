@@ -35,8 +35,8 @@ No modules.
 | [google_project_iam_policy.project](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_policy) | resource |
 | [google_project_service.services](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
 | [google_service_account.service_account](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
-| [external_external.gcloud-iam-service-accounts-list](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
-| [external_external.gcloud-services-list](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
+| [external_external.gcloud_iam_service_accounts_list](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
+| [external_external.gcloud_services_list](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
 | [google_iam_policy.project](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/iam_policy) | data source |
 
 ## Inputs
