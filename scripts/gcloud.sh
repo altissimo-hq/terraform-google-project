@@ -9,7 +9,12 @@
 CMD="${*} --format=json"
 
 # run the command and capture the output
-DATA=$(${CMD})
+# DATA=$(${CMD})
 
 # return the output as a JSON string
-jq -n --arg data "${DATA}" '{"data": $data}'
+# jq -n --arg data "${DATA}" '{"data": $data}'
+
+# the above solution runs into "Argument list too long" error when the input is too large
+
+# this solution compacts the output and can handle large inputs
+${CMD} | jq -c | jq -R '{"data": .}'
