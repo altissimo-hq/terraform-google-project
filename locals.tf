@@ -51,7 +51,7 @@ locals {
     "stackdriverprovisioning.googleapis.com",
   ]
   gcloud_service_names = var.gcloud_command == null ? null : [
-    for service in local.gcloud_services : service.config.name if contains(local.forbidden_services, service.config.name)
+    for service in local.gcloud_services : service.config.name if !contains(local.forbidden_services, service.config.name)
   ]
 
   # Generate a list of service account emails
