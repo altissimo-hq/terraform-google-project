@@ -1,3 +1,8 @@
+output "name" {
+  description = "Google Name (string)"
+  value       = google_project.project.name
+}
+
 output "number" {
   description = "Google Project Number (string)"
   value       = google_project.project.number

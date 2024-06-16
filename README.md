@@ -60,6 +60,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_name"></a> [name](#output\_name) | Google Name (string) |
 | <a name="output_number"></a> [number](#output\_number) | Google Project Number (string) |
 | <a name="output_project_iam_policy"></a> [project\_iam\_policy](#output\_project\_iam\_policy) | Google Project IAM Policy (list of binding objects) |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | Google Project ID (string) |

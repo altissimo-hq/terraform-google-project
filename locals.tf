@@ -28,21 +28,35 @@ locals {
     ])))
   }
 
-  sa_bindings = transpose({ for account, config in var.service_accounts : account => coalesce(config.roles, []) })
+  sa_bindings = transpose({
+    for account, config in var.service_accounts : account => coalesce(config.roles, [])
+  })
 
   # Retrieve a list of service accounts with gcloud
   gcloud_service_accounts = var.gcloud_command == null ? null : jsondecode(data.external.gcloud_iam_service_accounts_list[0].result.data)
 
   # Generate a list of service account names
-  gcloud_service_account_emails = var.gcloud_command == null ? null : [for service_account in local.gcloud_service_accounts : service_account.email]
+  gcloud_service_account_emails = var.gcloud_command == null ? null : [
+    for service_account in local.gcloud_service_accounts : service_account.email
+  ]
 
   # Retrieve a list of enabled services with gcloud
   gcloud_services = var.gcloud_command == null ? null : jsondecode(data.external.gcloud_services_list[0].result.data)
 
   # Generate a list of service names
-  gcloud_service_names = var.gcloud_command == null ? null : [for service in local.gcloud_services : service.config.name]
+  forbidden_services = [
+    "bigquery-json.googleapis.com",
+    "dataproc-control.googleapis.com",
+    "source.googleapis.com",
+    "stackdriverprovisioning.googleapis.com",
+  ]
+  gcloud_service_names = var.gcloud_command == null ? null : [
+    for service in local.gcloud_services : service.config.name if contains(local.forbidden_services, service.config.name)
+  ]
 
   # Generate a list of service account emails
-  service_account_emails = [for account in keys(var.service_accounts) : "${account}@${google_project.project.project_id}.iam.gserviceaccount.com"]
+  service_account_emails = [
+    for account in keys(var.service_accounts) : "${account}@${google_project.project.project_id}.iam.gserviceaccount.com"
+  ]
 
 }
