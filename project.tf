@@ -21,7 +21,7 @@ resource "google_project" "project" {
   auto_create_network = try(var.auto_create_network, false)
 
   # Do not delete the Project when the Terraform resource is deleted
-  deletion_policy = try(var.skip_delete, true) == true ? "ABANDON" : DELETE
+  deletion_policy = try(var.skip_delete, true) == true ? "ABANDON" : "DELETE"
 
   lifecycle {
     precondition {
