@@ -52,7 +52,7 @@ No modules.
 | <a name="input_org_id"></a> [org\_id](#input\_org\_id) | Parent Google Organization ID (only one of org\_id or folder\_id may be specified) | `string` | `null` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | Google Project ID | `string` | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Google Project Display Name (defaults to project\_id if not specified)) | `string` | `null` | no |
-| <a name="input_service_accounts"></a> [service\_accounts](#input\_service\_accounts) | Map of Google Service Accounts to Create | <pre>map(object({<br/>    display_name = optional(string)<br/>    disabled     = optional(bool)<br/>    roles        = optional(list(string))<br/>  }))</pre> | `{}` | no |
+| <a name="input_service_accounts"></a> [service\_accounts](#input\_service\_accounts) | Map of Google Service Accounts to Create | <pre>map(object({<br/>    description  = optional(string)<br/>    display_name = optional(string)<br/>    disabled     = optional(bool)<br/>    roles        = optional(list(string))<br/>  }))</pre> | `{}` | no |
 | <a name="input_services"></a> [services](#input\_services) | List of Google Project Services to Enable | `list(string)` | `[]` | no |
 | <a name="input_skip_delete"></a> [skip\_delete](#input\_skip\_delete) | Skip deletion of the Project when the Terraform resource is deleted (defaults to true) | `bool` | `true` | no |
 

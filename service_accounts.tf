@@ -8,8 +8,8 @@ resource "google_service_account" "service_account" {
   project      = google_project.project.project_id
   account_id   = each.key
   display_name = try(each.value.display_name, each.key)
-
-  disabled = try(each.value.disabled, false)
+  description  = try(each.value.description, "")
+  disabled     = try(each.value.disabled, false)
 }
 
 # Return a map of all service accounts that were created
@@ -23,6 +23,7 @@ output "service_accounts" {
 variable "service_accounts" {
   description = "Map of Google Service Accounts to Create"
   type = map(object({
+    description  = optional(string)
     display_name = optional(string)
     disabled     = optional(bool)
     roles        = optional(list(string))
