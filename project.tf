@@ -20,8 +20,8 @@ resource "google_project" "project" {
   # Do not automatically create a default Compute Network
   auto_create_network = try(var.auto_create_network, false)
 
-  # Do not delete the Project when the Terraform resource is deleted
-  deletion_policy = try(var.skip_delete, true) == true ? "ABANDON" : "DELETE"
+  # The deletion policy for the Project
+  deletion_policy = var.deletion_policy != null ? var.deletion_policy : (try(var.skip_delete, true) == true ? "ABANDON" : "DELETE")
 
   lifecycle {
     precondition {

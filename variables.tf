@@ -10,6 +10,12 @@ variable "billing_account" {
   default     = null
 }
 
+variable "deletion_policy" {
+  description = "The deletion policy for the Project (ABANDON, DELETE, or PREVENT). If not specified, skip_delete is used."
+  type        = string
+  default     = null
+}
+
 variable "folder_id" {
   description = "Parent Google Folder ID (only one of org_id or folder_id may be specified)"
   type        = string
@@ -46,7 +52,7 @@ variable "org_id" {
 }
 
 variable "skip_delete" {
-  description = "Skip deletion of the Project when the Terraform resource is deleted (defaults to true)"
+  description = "DEPRECATED: Use deletion_policy instead. Skip deletion of the Project when the Terraform resource is deleted (defaults to true)"
   type        = bool
   default     = true
 }
