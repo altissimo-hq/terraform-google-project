@@ -45,6 +45,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_auto_create_network"></a> [auto\_create\_network](#input\_auto\_create\_network) | Automatically create a default VPC network (defaults to false) | `bool` | `false` | no |
 | <a name="input_billing_account"></a> [billing\_account](#input\_billing\_account) | Billing Account ID (defaults to null if not specified) | `string` | `null` | no |
+| <a name="input_deletion_policy"></a> [deletion\_policy](#input\_deletion\_policy) | The deletion policy for the Project (ABANDON, DELETE, or PREVENT). If not specified, skip\_delete is used. | `string` | `null` | no |
 | <a name="input_folder_id"></a> [folder\_id](#input\_folder\_id) | Parent Google Folder ID (only one of org\_id or folder\_id may be specified) | `string` | `null` | no |
 | <a name="input_gcloud_command"></a> [gcloud\_command](#input\_gcloud\_command) | Path to the gcloud cli. Used to list enabled services and service accounts. | `string` | `null` | no |
 | <a name="input_iam_policy"></a> [iam\_policy](#input\_iam\_policy) | Map of Google Project IAM Policy Roles and Members | `map(list(string))` | `{}` | no |
@@ -54,7 +55,7 @@ No modules.
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Google Project Display Name (defaults to project\_id if not specified)) | `string` | `null` | no |
 | <a name="input_service_accounts"></a> [service\_accounts](#input\_service\_accounts) | Map of Google Service Accounts to Create | <pre>map(object({<br/>    description  = optional(string)<br/>    display_name = optional(string)<br/>    disabled     = optional(bool)<br/>    roles        = optional(list(string))<br/>  }))</pre> | `{}` | no |
 | <a name="input_services"></a> [services](#input\_services) | List of Google Project Services to Enable | `list(string)` | `[]` | no |
-| <a name="input_skip_delete"></a> [skip\_delete](#input\_skip\_delete) | Skip deletion of the Project when the Terraform resource is deleted (defaults to true) | `bool` | `true` | no |
+| <a name="input_skip_delete"></a> [skip\_delete](#input\_skip\_delete) | DEPRECATED: Use deletion\_policy instead. Skip deletion of the Project when the Terraform resource is deleted (defaults to true) | `bool` | `true` | no |
 
 ## Outputs
 

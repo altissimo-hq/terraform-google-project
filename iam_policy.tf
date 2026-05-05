@@ -18,4 +18,8 @@ resource "google_project_iam_policy" "project" {
   count       = var.iam_policy == null ? 0 : 1
   project     = google_project.project.project_id
   policy_data = data.google_iam_policy.project.policy_data
+
+  depends_on = [
+    google_service_account.service_account,
+  ]
 }
