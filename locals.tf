@@ -13,9 +13,15 @@ locals {
 
   # Replace the PROJECT_NUMBER and PROJECT_ID placeholders in the IAM Policy
   # Add service account roles to the IAM Policy
+  # Roles are collected from both var.iam_policy and service_accounts.*.roles,
+  # so a role only referenced by a service account does not need a matching
+  # (possibly empty) entry in var.iam_policy to be picked up. Roles that end
+  # up with no members are dropped, since Google silently drops memberless
+  # bindings from the stored policy, which would otherwise never converge.
   iam_policy = var.iam_policy == null ? {} : {
-    for role, members in var.iam_policy : role => sort(distinct(concat([
-      for member in members : replace(
+    for role in distinct(concat(keys(var.iam_policy), keys(local.sa_bindings))) :
+    role => sort(distinct(concat([
+      for member in try(var.iam_policy[role], []) : replace(
         replace(
           member,
           "PROJECT_NUMBER",
@@ -26,6 +32,7 @@ locals {
       ], [
       for member in try(local.sa_bindings[role], []) : "serviceAccount:${member}@${local.id}.iam.gserviceaccount.com"
     ])))
+    if length(concat(try(var.iam_policy[role], []), try(local.sa_bindings[role], []))) > 0
   }
 
   sa_bindings = transpose({
