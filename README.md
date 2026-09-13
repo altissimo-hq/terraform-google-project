@@ -13,15 +13,16 @@ In addition to creating the project, this module will enable project services, c
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
 | <a name="requirement_external"></a> [external](#requirement\_external) | >= 2.2.0 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.42.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | >= 6.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_external"></a> [external](#provider\_external) | >= 2.2.0 |
-| <a name="provider_google"></a> [google](#provider\_google) | >= 4.42.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | >= 6.0 |
 
 ## Modules
 
