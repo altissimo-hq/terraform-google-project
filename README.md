@@ -12,7 +12,7 @@ In addition to creating the project, this module will enable project services, c
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
 | <a name="requirement_external"></a> [external](#requirement\_external) | >= 2.2.0 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | >= 6.0 |
@@ -20,7 +20,7 @@ In addition to creating the project, this module will enable project services, c
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_external"></a> [external](#provider\_external) | >= 2.2.0 |
 | <a name="provider_google"></a> [google](#provider\_google) | >= 6.0 |
 
@@ -31,7 +31,7 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [google_project.project](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project) | resource |
 | [google_project_iam_policy.project](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_policy) | resource |
 | [google_project_service.services](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
@@ -43,7 +43,7 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_auto_create_network"></a> [auto\_create\_network](#input\_auto\_create\_network) | Automatically create a default VPC network (defaults to false) | `bool` | `false` | no |
 | <a name="input_billing_account"></a> [billing\_account](#input\_billing\_account) | Billing Account ID (defaults to null if not specified) | `string` | `null` | no |
 | <a name="input_deletion_policy"></a> [deletion\_policy](#input\_deletion\_policy) | The deletion policy for the Project (ABANDON, DELETE, or PREVENT). If not specified, skip\_delete is used. | `string` | `null` | no |
@@ -61,7 +61,7 @@ No modules.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_name"></a> [name](#output\_name) | Google Name (string) |
 | <a name="output_number"></a> [number](#output\_number) | Google Project Number (string) |
 | <a name="output_project_iam_policy"></a> [project\_iam\_policy](#output\_project\_iam\_policy) | Google Project IAM Policy (list of binding objects) |
