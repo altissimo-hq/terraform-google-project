@@ -62,6 +62,7 @@ No modules.
 
 | Name | Description |
 | ---- | ----------- |
+| <a name="output_iam_policy_etag"></a> [iam\_policy\_etag](#output\_iam\_policy\_etag) | Etag of the applied project IAM policy (string, null if iam\_policy is null). Reference it to make a resource wait until the policy is set; project\_iam\_policy does not, because it is known before apply. |
 | <a name="output_name"></a> [name](#output\_name) | Google Name (string) |
 | <a name="output_number"></a> [number](#output\_number) | Google Project Number (string) |
 | <a name="output_project_iam_policy"></a> [project\_iam\_policy](#output\_project\_iam\_policy) | Google Project IAM Policy (list of binding objects) |

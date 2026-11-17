@@ -23,6 +23,11 @@ output "project_iam_policy" {
   value       = jsondecode(data.google_iam_policy.project.policy_data)
 }
 
+output "iam_policy_etag" {
+  description = "Etag of the applied project IAM policy (string, null if iam_policy is null). Reference it to make a resource wait until the policy is set; project_iam_policy does not, because it is known before apply."
+  value       = one(google_project_iam_policy.project[*].etag)
+}
+
 output "unmanaged_project_services" {
   description = "Google Project Services that are enabled but are not managed by Terraform (list of strings)"
   value       = var.gcloud_command == null ? null : setsubtract(local.gcloud_service_names, var.services)
